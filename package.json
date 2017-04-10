@@ -1,0 +1,25 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "coding bootcamp at unc charlotte assignment 16",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattdeal/burger.git"
+  },
+  "author": "Matt Deal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattdeal/burger/issues"
+  },
+  "homepage": "https://github.com/mattdeal/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.8"
+  }
+}
