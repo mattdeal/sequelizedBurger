@@ -6,9 +6,9 @@
                         {{this.id}}. {{this.burger_name}}
                     </div>
                     <div class="col-xs-4">
-                        <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <form>
                             <input type="hidden" name="devoured" value="true">
-                            <button class="btn btn-info" type="submit">Devour!</button>
+                            <button id="btn-update" data-burger-id="{{this.id}}" class="btn btn-info" type="submit">Devour!</button>
                         </form>
                     </div>
                 </div>
@@ -16,13 +16,30 @@
     {{/each}}
 </div>
 <div class="col-xs-12 col-md-6">
-        {{#each burgers}}
-            {{#if this.devoured}}
-                <div class="row">
-                    <div class="col-xs-12">
-                        {{this.id}}. {{this.burger_name}}
-                    </div>
+    {{#each burgers}}
+        {{#if this.devoured}}
+            <div class="row">
+                <div class="col-xs-12">
+                    {{this.id}}. {{this.burger_name}}
                 </div>
-            {{/if}}
-        {{/each}}
+            </div>
+        {{/if}}
+    {{/each}}
 </div>
+
+<script>
+    $(document).ready(function() {
+        $('#btn-update').on('click', function(e) {
+            e.preventDefault();
+
+            var updateBurger = {
+                id: $(this).data('burger-id'),
+                devoured: false
+            };
+
+            $.put('/api/burger', updateBurger, function(data) {
+                location.reload();
+            });
+        });
+    });
+</script>
