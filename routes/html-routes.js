@@ -6,7 +6,7 @@ var models = require("../models");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     models.Burger.findAll({}).then(function(modelsBurger) {
-        res.render("burgers", {burgers: modelsBurger});
+        res.render("index", {burgers: modelsBurger});
     });
   }); 
 };//end module.exports

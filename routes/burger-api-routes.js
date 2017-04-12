@@ -13,10 +13,12 @@ module.exports = function(app) {
   });//end app.post
 
   app.put('/api/burger', function(req, res) {
-    models.Burger.update({
-        //todo: where and values
+    models.Burger.update({devoured: true}, {
+      where: {
+        id: req.body.id
+      }
     }).then(function(updatedBurger) {
-        res.redirect('/');
+        res.json(updatedBurger);
     });
   });
 }; //end module.exports

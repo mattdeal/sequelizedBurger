@@ -37,8 +37,21 @@
                 devoured: false
             };
 
-            $.put('/api/burger', updateBurger, function(data) {
-                location.reload();
+            //$.put('/api/burger', updateBurger, function(data) {
+            //    console.log('updated burger');
+            //});
+
+            $.ajax({
+                url: '/api/burger',
+                type: 'PUT',
+                data: updateBurger,
+                success: function(result) {
+                    console.log('update burger');
+                    location.reload();
+                },
+                error: function(err) {
+                    console.log(err);
+                }
             });
         });
     });

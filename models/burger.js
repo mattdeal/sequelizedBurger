@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     devoured: {
-      type: DataTypes.Boolean
+      type: DataTypes.BOOLEAN
     }
   });
   return Burger;
